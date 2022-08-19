@@ -51,3 +51,10 @@ console.log(first)
 // chaining a filter and map method, getting the gender of the characters above 180 in height
 const tallGender = characters.filter(char => char.height > 180).map(char => ({gender: char.gender, name: char.name, height: char.height}))
 console.log(tallGender)
+
+function doubleNumber(arr) {
+    const doubled = arr.map(num => num * 2)
+    return doubled
+}
+
+console.log(doubleNumber([2, 5, 100]))
