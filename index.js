@@ -29,6 +29,7 @@ const characters = [
     },
 ];
 
+// ********MAP*************
 
 // get array of all names
 characters.map((char) => console.log(char.name)
