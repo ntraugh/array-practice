@@ -52,9 +52,7 @@ console.log(first)
 const tallGender = characters.filter(char => char.height > 180).map(char => ({gender: char.gender, name: char.name, height: char.height}))
 console.log(tallGender)
 
-function doubleNumber(arr) {
-    const doubled = arr.map(num => num * 2)
-    return doubled
-}
+const doubleNumber = (arr) => arr.map(num => num * 2)
+
 
 console.log(doubleNumber([2, 5, 100]))
