@@ -33,3 +33,5 @@ const characters = [
 // get array of all names
 characters.map((char) => console.log(char.name)
 )
+// get array of all heights
+characters.map((char) => console.log(char.height))
