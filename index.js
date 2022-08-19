@@ -41,5 +41,8 @@ characters.map((char) => console.log(char.name + " " + char.height))
 
 // get array of objects with name and height
 const nameHeight = characters.map((char) => ({name: char.name, height: char.height}))
-
 console.log(nameHeight)
+
+// get array of all first names using the split method on our name string
+const first = characters.map((char) => char.name.split(" ")[0])
+console.log(first)
