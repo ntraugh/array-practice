@@ -38,3 +38,8 @@ characters.map((char) => console.log(char.height))
 
 // get array for names with heights
 characters.map((char) => console.log(char.name + " " + char.height))
+
+// get array of objects with name and height
+const nameHeight = characters.map((char) => ({name: char.name, height: char.height}))
+
+console.log(nameHeight)
