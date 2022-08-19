@@ -47,3 +47,7 @@ console.log(nameHeight)
 // get array of all first names using the split method on our name string
 const first = characters.map((char) => char.name.split(" ")[0])
 console.log(first)
+
+// chaining a filter and map method, getting the gender of the characters above 180 in height
+const tallGender = characters.filter(char => char.height > 180).map(char => ({gender: char.gender, name: char.name, height: char.height}))
+console.log(tallGender)
