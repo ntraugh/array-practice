@@ -11,6 +11,12 @@ function App() {
   // setting our tours state that we will use when we update the values
   const [tours, setTours] = useState([])
 
+  const removeTour = (id) => {
+    // filtering our tours data where the tour.id doesn't match the id passed in, essentially filtering out the one that does match(that needs to be deleted)
+    const newTours = tours.filter((tour) => tour.id !== id)
+    setTours(newTours)
+  }
+
   // create async await function to use inside useEffect
   const getTours = async () => {
     try{
@@ -42,7 +48,7 @@ function App() {
   return <main>
 
     {/* passing our tours state data to the Tours component, check the tours component to see ({ tours }) */}
-    <Tours tours={tours}/>
+    <Tours tours={tours} removeTour={removeTour}/>
   </main>
   
 }
