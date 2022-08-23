@@ -44,6 +44,16 @@ function App() {
     </main>
   }
 
+  if(tours.length === 0) {
+    return (
+      <main>
+        <div  className="title">
+          <h1>No Tours</h1>
+          <button className="btn" onClick={() => getTours()}>Refresh</button>
+        </div>
+      </main>
+    )}
+
   // if we aren't loading we'll show this section
   return <main>
 
