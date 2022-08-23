@@ -8,14 +8,14 @@ const characters = [
     },
     {
         name: 'Darth Vader',
-        height: '202',
+        height: '203',
         mass: '136',
         eye_color: 'yellow',
         gender: 'male',
     },
     {
         name: 'Leia Organa',
-        height: '150',
+        height: '151',
         mass: '49',
         eye_color: 'brown',
         gender: 'female',
@@ -39,4 +39,9 @@ const shortKings = characters.filter(char => char.height < 200)
 
 // get male characters
 const genderNeutral = characters.filter(char => char.gender === "male")
-console.log(genderNeutral)
+// console.log(genderNeutral)
+
+
+//  get heights that are even
+const evenHeight = characters.filter(char => (char.height % 2 == 0 ))
+console.log(evenHeight)
