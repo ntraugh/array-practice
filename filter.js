@@ -49,3 +49,7 @@ const evenHeight = characters.filter(char => (char.height % 2 == 0 ))
 // filter where the name ends in r by using endsWith
 const endsR = characters.filter(char => char.name.endsWith("a"))
 console.log(endsR)
+
+// map method to get all of the characters first names by splitting them by a space and slicing the array by the first index
+const names = characters.map((char) => char.name.split(" ").slice(0,1))
+console.log(names)
