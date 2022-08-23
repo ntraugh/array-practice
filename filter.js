@@ -44,4 +44,8 @@ const genderNeutral = characters.filter(char => char.gender === "male")
 
 //  get heights that are even
 const evenHeight = characters.filter(char => (char.height % 2 == 0 ))
-console.log(evenHeight)
+// console.log(evenHeight)
+
+// filter where the name ends in r by using endsWith
+const endsR = characters.filter(char => char.name.endsWith("a"))
+console.log(endsR)
