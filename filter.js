@@ -31,8 +31,12 @@ const characters = [
 
 // get all characters over 100 mass
 const bigBois = characters.filter(char => char.mass > 100)
-console.log(bigBois)
+// console.log(bigBois)
 
 // height less than 200
 const shortKings = characters.filter(char => char.height < 200)
-console.log(shortKings)
+// console.log(shortKings)
+
+// get male characters
+const genderNeutral = characters.filter(char => char.gender === "male")
+console.log(genderNeutral)
