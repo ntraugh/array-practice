@@ -6,6 +6,7 @@ const List = ({items}) => {
   return (
     <div className='grocery-list'>
       {items.map((item) => {
+        // destructure the id and title after we get the item so we don't have to do item.id and item.title in our {}
         const {id, title} = item
         return <article key={id} className="grocery-item">
           <p className='title'>{title}</p>

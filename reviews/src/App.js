@@ -8,7 +8,7 @@ function App() {
   const [list, setList] = useState([])
   const [isEditing, setIsEditing] = useState(false)
   const [editID, setEditID] = useState(null)
-  const [alert, setAlert] = useState({ show: false, msg: "", type: ""})
+  const [alert, setAlert] = useState({ show: true, msg: "Alert", type: "success"})
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -32,7 +32,7 @@ function App() {
     <section className="section-center">
       <form className="grocery-form" onSubmit={handleSubmit}>
         {/* this conditional is checking our state of alert with the property of show. If it's true we show the alert */}
-        {alert.show && <Alert />}
+        {alert.show && <Alert alert={alert}/>}
         <h3>Grocery Helper</h3>
         <div className="form-control">
           <input 

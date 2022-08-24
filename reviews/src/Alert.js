@@ -1,8 +1,10 @@
 import React from 'react'
 
-const Alert = () => {
+// destructuring the alert state value here, don't need show. 
+const Alert = ({alert}) => {
   return (
-    <h2>Alert</h2>
+    // setup a classname with alert property and then a second css property that is dynamic depending on the state
+    <p className={`alert alert-${alert.type}`}>{alert.msg}</p>
   )
 }
 
