@@ -1,9 +1,25 @@
 import React from 'react'
+import { FaEdit, FaTrash } from "react-icons/fa"
 
-
-const List = () => {
+// passing our items prop from our app.js to our list.js so we can map over the items
+const List = ({items}) => {
   return (
-    <h2>List</h2>
+    <div className='grocery-list'>
+      {items.map((item) => {
+        const {id, title} = item
+        return <article key={id} className="grocery-item">
+          <p className='title'>{title}</p>
+          <div className='btn-container'>
+            <button type='button' className='edit-btn'>
+              <FaEdit size={20}/>
+            </button>
+            <button type='button' className='delete-btn'>
+              <FaTrash size={18}/>
+            </button>
+          </div>
+        </article>
+      })}
+    </div>
   )
 }
 

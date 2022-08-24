@@ -12,7 +12,20 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("hey")
+    if(!name) {
+      // display the alert if there is no info in the search
+
+    } else if (name && isEditing){
+        // if there is something in the input value AND isEditing state is true
+
+    } else {
+      // show the alert and create the new item
+      const newItem = { id: new Date().getTime().toString(), title: name }
+      // we have to setList to our original list and our new item so that when we add a new item all of our older items are still in our list
+      setList([...list, newItem])
+      // after we set our list we reset our name to an empty string to clear out the input field.
+      setName("")
+    }
   }
 
   return (
@@ -25,7 +38,7 @@ function App() {
           <input 
             type="text" 
             className="grocery" 
-            placeholder="Items"
+            placeholder="Insert grocery items here"
             value={name}
             onChange={(e) => setName(e.target.value)}/>
           <button type="submit" className="submit-btn">
@@ -35,7 +48,7 @@ function App() {
         </div>
       </form>
       <div className="grocery-container">
-        <List />
+        <List items={list}/>
         <button className="clear-btn">
           Clear Items
         </button>
