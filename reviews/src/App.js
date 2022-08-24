@@ -8,13 +8,13 @@ function App() {
   const [list, setList] = useState([])
   const [isEditing, setIsEditing] = useState(false)
   const [editID, setEditID] = useState(null)
-  const [alert, setAlert] = useState({ show: true, msg: "Alert", type: "success"})
+  const [alert, setAlert] = useState({ show: false, msg: "Alert", type: "success"})
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if(!name) {
-      // display the alert if there is no info in the search
-
+      // call the showAlert function that runs the setAlert function
+      showAlert(true, "danger", "Enter Some Input")
     } else if (name && isEditing){
         // if there is something in the input value AND isEditing state is true
 
@@ -28,11 +28,16 @@ function App() {
     }
   }
 
+  // function that takes in show, type, and msg which we give default values, then runs the setAlert function to set the values for the parameters
+  const showAlert = (show=false, type="", msg="") => {
+      setAlert({show, type, msg})
+  }
+
   return (
     <section className="section-center">
       <form className="grocery-form" onSubmit={handleSubmit}>
         {/* this conditional is checking our state of alert with the property of show. If it's true we show the alert */}
-        {alert.show && <Alert alert={alert}/>}
+        {alert.show && <Alert alert={alert} unShowAlert={showAlert}/>}
         <h3>Grocery Helper</h3>
         <div className="form-control">
           <input 
