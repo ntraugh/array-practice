@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 
-// grabbing alert prop from the App component. 
+// grabbing alert prop and unShowAlert prop which contains a function from the App component. 
 const Alert = ({alert, unShowAlert}) => {
 
   // using useEffect to unShow the alert after 3000 ms or 3 seconds
   useEffect(() => {
     const timeout = setTimeout(() => {
         unShowAlert()
-    }, 3000)
+    }, 2000)
     return () => clearTimeout(timeout)
   }, [])
   return (

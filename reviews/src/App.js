@@ -19,6 +19,8 @@ function App() {
         // if there is something in the input value AND isEditing state is true
 
     } else {
+      // after we've successfully entered data we show the showAlert(show, type, msg) function
+      showAlert(true, "success", "Item added!")
       // show the alert and create the new item
       const newItem = { id: new Date().getTime().toString(), title: name }
       // we have to setList to our original list and our new item so that when we add a new item all of our older items are still in our list
@@ -33,10 +35,17 @@ function App() {
       setAlert({show, type, msg})
   }
 
+  const clearList = () => {
+    showAlert(true, "danger", "Items Deleted!")
+    // after we run our function we need to clear the list
+    setList([])
+  }
+
   return (
     <section className="section-center">
       <form className="grocery-form" onSubmit={handleSubmit}>
         {/* this conditional is checking our state of alert with the property of show. If it's true we show the alert */}
+        {/* We pass in our alert state and our showAlert function to our Alert component through props */}
         {alert.show && <Alert alert={alert} unShowAlert={showAlert}/>}
         <h3>Grocery Helper</h3>
         <div className="form-control">
@@ -56,7 +65,7 @@ function App() {
       {list.length > 0 &&
         <div className="grocery-container">
           <List items={list}/>
-          <button className="clear-btn">
+          <button className="clear-btn" onClick={clearList}>
             Clear Items
           </button>
         </div>}
