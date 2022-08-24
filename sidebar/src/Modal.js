@@ -5,6 +5,8 @@ import { useGlobalContext } from './context'
 
 
 const Modal = () => {
+  // destructure modalOpen state from context.js useGlobalContext
+  // destructure closeModal function from useGlobalContext which sets modalOpen to false
   const {modalOpen,closeModal} = useGlobalContext()
 
   return (
