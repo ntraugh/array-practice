@@ -1,11 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import List from "./List";
 import Alert from "./Alert"
+
+// set up our local storage funciton to get our list on load, if the list is there display it if it isn't display empty array
+// call this function in our list, setList useState so it renders on load
+const getLocalStorage = () => {
+  let list = localStorage.getItem("list")
+  if(list) {
+    return JSON.parse(localStorage.getItem("list"))
+  } else {
+    return []
+  }
+}
+
 
 function App() {
 
   const [name, setName] = useState("")
-  const [list, setList] = useState([])
+  const [list, setList] = useState(getLocalStorage())
   const [isEditing, setIsEditing] = useState(false)
   const [editID, setEditID] = useState(null)
   const [alert, setAlert] = useState({ show: false, msg: "Alert", type: "success"})
@@ -30,6 +42,7 @@ function App() {
       // need to set our name to an empty value OUTSIDE of the setList function and setIsEditing to false so the button changes back to submit
       setName("")
       setIsEditing(false)
+      showAlert(true, "success", "Item edited successfully")
     } else {
       // after we've successfully entered data we show the showAlert(show, type, msg) function
       showAlert(true, "success", "Item added!")
@@ -71,6 +84,11 @@ function App() {
     // and we set our name(input) to whatever the new item title is
     setName(item.title)
   }
+
+  // everytime we do something to the list we will store it into local storage
+  useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(list))
+  }, [list])
 
   return (
     <section className="section-center">
