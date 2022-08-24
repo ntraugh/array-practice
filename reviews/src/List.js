@@ -2,7 +2,7 @@ import React from 'react'
 import { FaEdit, FaTrash } from "react-icons/fa"
 
 // passing our items prop from our app.js to our list.js so we can map over the items
-const List = ({items, removeItem}) => {
+const List = ({items, removeItem, editItem}) => {
   return (
     <div className='grocery-list'>
       {items.map((item) => {
@@ -11,7 +11,7 @@ const List = ({items, removeItem}) => {
         return <article key={id} className="grocery-item">
           <p className='title'>{title}</p>
           <div className='btn-container'>
-            <button type='button' className='edit-btn'>
+            <button type='button' className='edit-btn' onClick={() => editItem(id)}>
               <FaEdit size={20}/>
             </button>
             {/* we can use the id in our removeItem function because we've destructured it already in this map function */}
