@@ -41,6 +41,14 @@ function App() {
     setList([])
   }
 
+  // function to remove the item, need to pass this to the List component through props
+  const removeItem = (id) => {
+    // first we show our alert that the item was deleted
+    showAlert(true, "danger", "Item Deleted")
+    // then we set our list by filtering through the items and displaying all the items where the id doesn't match the one clicked
+    setList(list.filter((item) => item.id !== id))
+  }
+
   return (
     <section className="section-center">
       <form className="grocery-form" onSubmit={handleSubmit}>
@@ -64,7 +72,7 @@ function App() {
       {/* only show the div if the list length is greater than 0 */}
       {list.length > 0 &&
         <div className="grocery-container">
-          <List items={list}/>
+          <List items={list} removeItem={removeItem}/>
           <button className="clear-btn" onClick={clearList}>
             Clear Items
           </button>
