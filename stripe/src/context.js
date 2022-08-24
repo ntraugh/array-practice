@@ -4,9 +4,9 @@ import sublinks from './data'
 const AppContext = React.createContext()
 
 // ALWAYS DESTRUCTURE CHILDREN
-const appProvider = ({children}) => {
-    const [modalOpen, setModalOpen] = useState(false)
-    const [sidebarOpen, setSidebarOpen] = useState(false)
+const AppProvider = ({children}) => {
+    const [submenuOpen, setSubmenuOpen] = useState(true)
+    const [sidebarOpen, setSidebarOpen] = useState(true)
 
     const openSidebar = () => {
         setSidebarOpen(true)
@@ -14,14 +14,31 @@ const appProvider = ({children}) => {
     const closeSidebar = () => {
         setSidebarOpen(false)
     }
-    const openModal = () => {
-        setModalOpen(true)
+    const openSubmenu = () => {
+        setSubmenuOpen(true)
     }
-    const closeModal = () => {
-        setModalOpen(false)
+    const closeSubmenu = () => {
+        setSubmenuOpen(false)
     }
 
-    <AppContext.Provider value={}>
+    // don't forget to return the AppContext.Provider or else you won't see anything on your page.
+    return <AppContext.Provider value={
+        {
+            submenuOpen,
+            sidebarOpen,
+            openSidebar,
+            closeSidebar,
+            openSubmenu,
+            closeSubmenu,
+        }
+    }>
         {children}
     </AppContext.Provider>
 }
+
+// custom hook
+export const useGlobalContext = () => {
+    return useContext(AppContext)
+}
+
+export {AppProvider, AppContext}
