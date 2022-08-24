@@ -7,7 +7,7 @@ const AppProvider = ({ children }) => {
     const [sidebarOpen, setSidebarOpen] = useState(false)
     const [modalOpen, setModalOpen] = useState(false)
     
-    
+
     const openSidebar = () => {
         setSidebarOpen(true)
     }
@@ -15,8 +15,24 @@ const AppProvider = ({ children }) => {
     const closeSidebar = () => {
         setSidebarOpen(false)
     }
+    const openModal = () => {
+        setModalOpen(true)
+    }
 
-    return <AppContext.Provider value="hello">{children}</AppContext.Provider>
+    const closeModal = () => {
+        setModalOpen(false)
+    }
+
+    return <AppContext.Provider value={
+        {
+            modalOpen, 
+            sidebarOpen, 
+            openModal, 
+            closeModal, 
+            closeSidebar, 
+            openSidebar}}>
+                {children}
+            </AppContext.Provider>
 }
 
 // custom hook to export to our components. NEEDS TO START WITH ***use***
