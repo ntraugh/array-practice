@@ -7,6 +7,7 @@ import { AppProvider } from "./context"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    {/* wrapping the whole App component in our appProvider allowing us to use our context we've stated on all components */}
     <AppProvider>
       <App />
     </AppProvider>
