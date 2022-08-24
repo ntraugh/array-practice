@@ -3,6 +3,7 @@ import { FaBars, FaTimes } from "react-icons/fa"
 
 
 const Modal = () => {
+
   return (
     // creating a dynamic classname depending on if the modal is clicked or not
     <div className={`modal-overlay`}>

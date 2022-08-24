@@ -5,7 +5,7 @@ import { FaTimes } from "react-icons/fa"
 
 const Sidebar = () => {
   return (
-    <aside className={`sidebar show-sidebar`}>
+    <aside className={`sidebar`}>
       <div className='sidebar-header'>
         <img src={logo} alt="logo" className='logo'/>
         <button className="close-btn">
