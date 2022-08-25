@@ -13,9 +13,12 @@ const Navbar = () => {
     const tempBtn = e.target.getBoundingClientRect()
     // leaving this console log in here to show what getBoundingClientRect gives back
     console.log(tempBtn)
-
-
-    openSubmenu()
+    // grabbing the center of the button by adding left and right and dividing by 2
+    const center = (tempBtn.left + tempBtn.right) / 2
+    // grabbing the bottom of it and offsetting by 3
+    const bottom = tempBtn.bottom - 3 
+    // after we have all our values we can pass them into the openSubmenu state function
+    openSubmenu(page, { center, bottom })
   }
   return (
     <nav className='nav'>
