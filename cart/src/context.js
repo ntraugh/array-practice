@@ -22,8 +22,14 @@ const AppProvider = ({ children }) => {
         dispatch({type: "CLEAR_CART"})
     }
 
+    const remove = (id) => {
+        // you can name payload whatever you want but it takes in the id
+        // we use this payload by grabbing action.payload in our reducer.js file
+        dispatch({type: "REMOVE", payload: id})
+    }
+
     return (
-        <AppContext.Provider value={ { ...state, clearCart } }
+        <AppContext.Provider value={ { ...state, clearCart, remove } }
         >
             {children}
         </AppContext.Provider>
