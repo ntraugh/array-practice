@@ -35,6 +35,19 @@ const AppProvider = ({ children }) => {
         dispatch({type: "DECREASE", payload: id})
     }
 
+    // function to fetch data from our API
+    const fetchData = async () => {
+        dispatch({ type: "LOADING"})
+        const res = await fetch(url)
+        const cart = await res.json()
+        dispatch({ type: "DISPLAY_ITEMS", payload: cart})
+    }
+
+    // fetch our data only when the page loads []
+    useEffect(() => {
+        fetchData()
+    }, [])
+
     useEffect(() => {
         dispatch ({ type: "GET_TOTAL"})
     }, [state])
