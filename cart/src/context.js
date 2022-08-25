@@ -11,9 +11,7 @@ const AppProvider = ({ children }) => {
     const [cart, setCart] = useState(cartItems)
 
     return (
-        <AppContext.Provider value={
-            { cart, }
-        }
+        <AppContext.Provider value={ { cart, } }
         >
             {children}
         </AppContext.Provider>

@@ -2,6 +2,7 @@ import React from 'react'
 import { useGlobalContext } from './context'
 const CartItem = ({ id, img, title, price, amount }) => {
   return (
+    // our cart card essentially made by destructuring all our cart values
     <article className='cart-item'>
       <img src={img} alt={title} />
       <div>

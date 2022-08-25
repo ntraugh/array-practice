@@ -4,6 +4,7 @@ import { useGlobalContext } from './context'
 
 const CartContainer = () => {
   const { cart } = useGlobalContext()
+  // if there's nothing in the cart we display your bag is currently empty
   if (cart.length === 0) {
     return (
       <section className='cart'>
@@ -16,6 +17,7 @@ const CartContainer = () => {
     )
   }
   return (
+    // if there is something in the cart we display this section
     <section className='cart'>
       {/* cart header */}
       <header>
@@ -24,6 +26,9 @@ const CartContainer = () => {
       {/* cart items */}
       <div>
         {cart.map((item) => {
+          // map over our cart array and display CartItem component for each
+          // passing in every piece of info from item {...item}
+          // so we can destructure it in our CartItem component
           return <CartItem key={item.id} {...item} />
         })}
       </div>
