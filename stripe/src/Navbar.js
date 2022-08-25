@@ -7,7 +7,14 @@ const Navbar = () => {
   // grab the functions from globalContext that we need in the navbar
   const {openSidebar, openSubmenu, closeSubmenu} = useGlobalContext()
   const displayMenu = (e) => {
-    console.log("hello")
+    // when we hover in our console our "e.target" is the button, so we grab the textContent from it and not the value
+    const page = e.target.textContent
+    // getBoundingClientRect gives you back the exact position on the dom where that element is located
+    const tempBtn = e.target.getBoundingClientRect()
+    // leaving this console log in here to show what getBoundingClientRect gives back
+    console.log(tempBtn)
+
+
     openSubmenu()
   }
   return (
