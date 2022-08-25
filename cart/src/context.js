@@ -43,6 +43,10 @@ const AppProvider = ({ children }) => {
         dispatch({ type: "DISPLAY_ITEMS", payload: cart})
     }
 
+    const toggleAmount = (id, type) => {
+        dispatch({ type: "TOGGLE_AMOUNT", payload: {id, type}})
+    }
+
     // fetch our data only when the page loads []
     useEffect(() => {
         fetchData()
@@ -53,7 +57,7 @@ const AppProvider = ({ children }) => {
     }, [state])
 
     return (
-        <AppContext.Provider value={ { ...state, clearCart, remove, increase, decrease } }
+        <AppContext.Provider value={ { ...state, clearCart, remove, increase, decrease, toggleAmount } }
         >
             {children}
         </AppContext.Provider>
