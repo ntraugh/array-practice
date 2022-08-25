@@ -1,1 +1,1 @@
-# Actually A Grocery item list tracker
+# A Grocery item list tracker
