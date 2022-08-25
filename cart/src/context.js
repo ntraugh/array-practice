@@ -36,7 +36,7 @@ const AppProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        console.log("hello")
+        dispatch ({ type: "GET_TOTAL"})
     }, [state])
 
     return (
