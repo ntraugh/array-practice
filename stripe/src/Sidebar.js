@@ -27,8 +27,6 @@ const Sidebar = () => {
                       {icon}
                       {label}
                     </a>
-                      
-                    
                   })}
                 </div>
               </article>

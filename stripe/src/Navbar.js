@@ -6,7 +6,10 @@ import logo from "./images/logo2.svg"
 const Navbar = () => {
   // grab the functions from globalContext that we need in the navbar
   const {openSidebar, openSubmenu, closeSubmenu} = useGlobalContext()
-
+  const displayMenu = (e) => {
+    console.log("hello")
+    openSubmenu()
+  }
   return (
     <nav className='nav'>
       <div className='nav-center'>
@@ -19,17 +22,17 @@ const Navbar = () => {
         </div>
         <ul className='nav-links'>
           <li>
-            <button className='link-btn'>
+            <button className='link-btn' onMouseOver={displayMenu}>
               products
             </button>
           </li>
           <li>
-            <button className='link-btn'>
+            <button className='link-btn' onMouseOver={displayMenu}>
               developers
             </button>
           </li>
           <li>
-            <button className='link-btn'>
+            <button className='link-btn' onMouseOver={displayMenu}>
               Company
             </button>
           </li>

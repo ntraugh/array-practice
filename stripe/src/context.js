@@ -5,8 +5,8 @@ const AppContext = React.createContext()
 
 // ALWAYS DESTRUCTURE CHILDREN
 const AppProvider = ({children}) => {
-    const [submenuOpen, setSubmenuOpen] = useState(true)
-    const [sidebarOpen, setSidebarOpen] = useState(true)
+    const [submenuOpen, setSubmenuOpen] = useState(false)
+    const [sidebarOpen, setSidebarOpen] = useState(false)
 
     const openSidebar = () => {
         setSidebarOpen(true)
