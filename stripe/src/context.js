@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import sublinks from './data'
+import Navbar from './Navbar'
 
 const AppContext = React.createContext()
 
@@ -32,6 +33,7 @@ const AppProvider = ({children}) => {
 
     const closeSubmenu = () => {
         setSubmenuOpen(false)
+        
     }
 
     // don't forget to return the AppContext.Provider or else you won't see anything on your page.

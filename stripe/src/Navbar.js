@@ -20,8 +20,18 @@ const Navbar = () => {
     // after we have all our values we can pass them into the openSubmenu state function
     openSubmenu(page, { center, bottom })
   }
+
+  // need to check if user is hovering over navbar but NOT the buttons
+  const removeSubmenu = (e) => {
+    // checking if the classList contains link-btn
+    // essentially the navbars button identifier
+    if(!e.target.classList.contains("link-btn")){
+      closeSubmenu()
+    }
+    
+  }
   return (
-    <nav className='nav'>
+    <nav className='nav' onMouseOver={removeSubmenu}>
       <div className='nav-center'>
         <div className='nav-header'>
           <img src={logo} alt="strip"/>
