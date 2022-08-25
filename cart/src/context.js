@@ -17,8 +17,13 @@ const initialState = {
 const AppProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
+    // creating our clear cart functionality and passing it into our provider so our other components can use it
+    const clearCart = () => {
+        dispatch({type: "CLEAR_CART"})
+    }
+
     return (
-        <AppContext.Provider value={ { ...state } }
+        <AppContext.Provider value={ { ...state, clearCart } }
         >
             {children}
         </AppContext.Provider>
