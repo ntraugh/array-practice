@@ -15,9 +15,34 @@ const SingleCocktail = () => {
         try {
           const res = await fetch(`${url}${id}`)
           const data = await res.json()
-          console.log(data)
+          // if data.drinks exists display if not setCocktail to null
+          if(data.drinks) {
+            const { 
+              strDrink: name, 
+              strDrinkThumb: image, 
+              strCategory: category, 
+              strGlass: glass, 
+              strInstructions: instructions, 
+              strIngredient1, 
+              strIngredient2, 
+              strIngredient3, 
+              strIngredient4, 
+              strIngredient5 } = data.drinks[0]
+            const ingredients = [
+              strIngredient1, 
+              strIngredient2, 
+              strIngredient3, 
+              strIngredient4, 
+              strIngredient5
+            ]
+          } else {
+            setCocktail(null)
+          }
+
+
         } catch (err) {
           console.log(err)
+          setLoading(false)
         }
     }
     getCocktail()
