@@ -6,12 +6,12 @@ const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
 
-    const [input, setInput] = useState("")
+    const [input, setInput] = useState("a")
     const [loading, setLoading] = useState(true)
     const [cocktail, setCocktail] = useState([])
 
     
-    const fetchDrinks = async () => {
+    const fetchDrinks = useCallback(async () => {
         setLoading(true)
         try {
             const res = await fetch(`${url}${input}`)
@@ -36,12 +36,12 @@ const AppProvider = ({ children }) => {
             console.log(err)
             setLoading(false)
         }
-    }
+    }, [input])
 
     // calling data from API so we useEffect with empty array to display on first render
     useEffect(() => {
         fetchDrinks()
-    }, [input])
+    }, [input, fetchDrinks])
 
     return <AppContext.Provider value={{
         loading, cocktail, setInput
