@@ -5,10 +5,13 @@ const SearchForm = () => {
     // grabbing our setInput function from context.js
     const { setInput } = useGlobalContext()
     const searchValue = React.useRef("")
+    
 
+    // useRef combined with useEffect to focus on the search form once the page loads
     useEffect(() => {
         searchValue.current.focus()
     }, [])
+
 
     const searchCocktail = () => {
         setInput(searchValue.current.value)
