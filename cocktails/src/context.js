@@ -6,8 +6,13 @@ const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
 
+    const [input, setInput] = useState("")
+    const [loading, setLoading] = useState(true)
+    const [cocktail, setCocktail] = useState([])
 
-    return <AppContext.Provider value="hello">
+    return <AppContext.Provider value={{
+        loading, input, cocktail, setInput
+    }}>
         { children }
     </AppContext.Provider>
 }
