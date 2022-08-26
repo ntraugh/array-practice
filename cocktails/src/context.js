@@ -41,7 +41,7 @@ const AppProvider = ({ children }) => {
     // calling data from API so we useEffect with empty array to display on first render
     useEffect(() => {
         fetchDrinks()
-    }, [])
+    }, [input])
 
     return <AppContext.Provider value={{
         loading, cocktail, setInput
