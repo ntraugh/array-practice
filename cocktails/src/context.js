@@ -7,7 +7,7 @@ const AppContext = React.createContext()
 const AppProvider = ({ children }) => {
 
     const [input, setInput] = useState("")
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [cocktail, setCocktail] = useState([])
 
     return <AppContext.Provider value={{
