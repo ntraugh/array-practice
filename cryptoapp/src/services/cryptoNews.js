@@ -20,7 +20,7 @@ export const cryptoNewsApi = createApi({
     endpoints: (builder) => ({
         getCryptoNews: builder.query({
             // to get all cryptos we query the createRequest with the url of "/exchances"
-            query: (newsCategory, count) => 
+            query: ({newsCategory, count}) => 
             createRequest(`/news/search?q=${newsCategory}&safeSearch=Off&textFormat=Raw&freshness=Day&count=${count}`)
         })
     }) 
