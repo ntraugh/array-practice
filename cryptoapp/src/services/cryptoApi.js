@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query"
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
 // create a variable for our headers to use with our API
 const cryptoApiHeaders = {
@@ -7,7 +7,7 @@ const cryptoApiHeaders = {
 }
 
 // create a variable for the url so we don't have to type it out a bunch of times
-const url = 'https://coinranking1.p.rapidapi.com/coins'
+const url = 'https://coinranking1.p.rapidapi.com'
 
 // create a function that takes in our url and we return a new object with our headers in the url
 const createRequest = (url) => ({ url, headers: cryptoApiHeaders})
@@ -23,7 +23,12 @@ export const cryptoApi = createApi({
     endpoints: (builder) => ({
         getCryptos: builder.query({
             // to get all cryptos we query the createRequest with the url of "/exchances"
-            query: () => createRequest("/exchanges")
+            query: () => createRequest("/coins")
         })
     }) 
 })
+
+export const {
+    // to export our "getCryptos" we need to add "use" before it and "Query" after it, redux does the rest for us
+    useGetCryptosQuery,
+} = cryptoApi
