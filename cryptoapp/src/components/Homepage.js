@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import millify from "millify"
 import { Typography, Row, Col, Statistic } from 'antd'
 import { Link } from "react-router-dom"
@@ -9,6 +9,8 @@ import {Cryptocurrencies, News} from "../components"
 const { Title } = Typography
 
 const Homepage = () => {
+
+  
 
   const { data, isFetching } = useGetCryptosQuery(10)
   
