@@ -10,8 +10,8 @@ const Homepage = () => {
 
   const { data, isFetching } = useGetCryptosQuery()
   
-  // grabbing our data from the API calls.  we get data back from API calls then we go into the data object then get stats from there.
-  const globalStats = data?.data?.stats
+  // destructured stats from our API call (data.data). we could also grab "coins" from this call as well
+  const { stats } = data.data
 
 
   if(isFetching) return "Loading..."
@@ -23,11 +23,11 @@ const Homepage = () => {
       </Title>
       <Row>
         {/* because globalStats points to the stats object in our API we can just grab the total from it.  or total24hVolume, totalCoins,totalExchanges, etc */}
-        <Col span={12}><Statistic title="Total Cryptocurrencies" value={globalStats.total}/></Col>
-        <Col span={12}><Statistic title="Total Exchanges" value={globalStats.totalExchanges}/></Col>
-        <Col span={12}><Statistic title="Total Market Cap" value={globalStats.totalMarketCap}/></Col>
-        <Col span={12}><Statistic title="Total 24hr Volume" value={globalStats.total24hVolume}/></Col>
-        <Col span={12}><Statistic title="Total Markets" value={globalStats.totalMarkets}/></Col>
+        <Col span={12}><Statistic title="Total Cryptocurrencies" value={stats.total}/></Col>
+        <Col span={12}><Statistic title="Total Exchanges" value={stats.totalExchanges}/></Col>
+        <Col span={12}><Statistic title="Total Market Cap" value={stats.totalMarketCap}/></Col>
+        <Col span={12}><Statistic title="Total 24hr Volume" value={stats.total24hVolume}/></Col>
+        <Col span={12}><Statistic title="Total Markets" value={stats.totalMarkets}/></Col>
          
           
         
