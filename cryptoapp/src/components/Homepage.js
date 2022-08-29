@@ -10,7 +10,7 @@ const { Title } = Typography
 
 const Homepage = () => {
 
-  const { data, isFetching } = useGetCryptosQuery()
+  const { data, isFetching } = useGetCryptosQuery(10)
   
   // destructured stats from our API call (data.data). we could also grab "coins" from this call as well
   const stats = data?.data?.stats
