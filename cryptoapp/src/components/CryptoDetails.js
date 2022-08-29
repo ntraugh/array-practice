@@ -26,7 +26,6 @@ const CryptoDetails = () => {
   const stats = [
     { title: 'Price to USD', value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`, icon: <DollarCircleOutlined /> },
     { title: 'Rank', value: cryptoDetails?.rank, icon: <NumberOutlined /> },
-    { title: 'Url', value: <a href={`${cryptoDetails?.websiteUrl}`}>{cryptoDetails?.websiteUrl}</a>, icon: <ThunderboltOutlined /> },
     { title: 'Market Cap', value: `$ ${cryptoDetails?.marketCap && millify(cryptoDetails?.marketCap)}`, icon: <DollarCircleOutlined /> },
     { title: 'All-time-high(daily avg.)', value: `$ ${cryptoDetails?.allTimeHigh?.price && millify(cryptoDetails?.allTimeHigh?.price)}`, icon: <TrophyOutlined /> },
   ];
@@ -73,10 +72,10 @@ const CryptoDetails = () => {
         <Col className='other-stats-info'>
           <Col className='coin-value-statistics-heading'>
             <Title level={3} className="coin-details-heading">
-              {cryptoDetails.name} generic statistics.
+             Generic statistics.
             </Title>
             <p>
-              An overview showing statistics
+              {cryptoDetails.name} generic statistics
             </p>
           </Col>
           {genericStats.map(({ icon, title, value}) => (
@@ -87,6 +86,29 @@ const CryptoDetails = () => {
               </Col>
               <Text className='stats'>{value}</Text>
             </Col>
+          ))}
+        </Col>
+      </Col>
+      <Col className='coin-desc-link'>
+        <Row className='coin-desc'>
+          <Title level={3} className="coin-details-heading">
+              What is {cryptoDetails.name}?
+              {HTMLReactParser(cryptoDetails.description)}
+          </Title>
+        </Row>
+        <Col className='coin-links'>
+          <Title level={3} className="coin-details-heading">
+            {cryptoDetails.name} Links
+          </Title>
+          {cryptoDetails.links.map((link) => (
+            <Row className='coin-link' key={link.name}>
+              <Title level={5} className="link-name">
+                {link.type}
+              </Title>
+              <a href={link.url} target="_blank" rel="noreferrer">
+                {link.name}
+              </a>
+            </Row>
           ))}
         </Col>
       </Col>
