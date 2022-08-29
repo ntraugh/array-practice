@@ -46,7 +46,7 @@ const News = ({simplified}) => {
                   <Title className='news-title' level={4}>{article.name}</Title>
                   <img style={{maxWidth: "200px", maxHeight: "100px", borderRadius: "4px"}} src={article?.image?.thumbnail?.contentUrl || demoImage} alt="article" />
                 </div>
-                <p>{article.description > 100 ? `${article.description.substring(0,150)}...` : article.description} </p>
+                <p>{article.description > 100 ? article.description: `${article.description.substring(0,200)}...` } </p>
                 <div className='provider-container'>
                   <div>
                     <Avatar src={article.provider[0]?.image?.thumbnail?.contentUrl || demoImage} alt="news" size={50}/> 

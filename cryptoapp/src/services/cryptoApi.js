@@ -24,6 +24,10 @@ export const cryptoApi = createApi({
         getCryptos: builder.query({
             // to get all cryptos we query the createRequest with the url of "/exchances"
             query: (count) => createRequest(`/coins?limit=${count}`)
+        }),
+        getCryptoDetails: builder.query({
+            // to get all cryptos we query the createRequest with the url of "/exchances"
+            query: (coinId) => createRequest(`/coin/${coinId}`)
         })
     }) 
 })
@@ -31,5 +35,5 @@ export const cryptoApi = createApi({
 export const {
     // to export our "getCryptos" we need to add "use" before it and "Query" after it, redux does the rest for us
     useGetCryptosQuery,
-    useGetNewsQuery
+    useGetCryptoDetailsQuery,
 } = cryptoApi
