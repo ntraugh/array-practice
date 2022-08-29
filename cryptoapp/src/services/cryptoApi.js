@@ -31,4 +31,5 @@ export const cryptoApi = createApi({
 export const {
     // to export our "getCryptos" we need to add "use" before it and "Query" after it, redux does the rest for us
     useGetCryptosQuery,
+    useGetNewsQuery
 } = cryptoApi

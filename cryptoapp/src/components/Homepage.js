@@ -37,6 +37,7 @@ const Homepage = () => {
         <Title level={2} className="home-title">Top 10</Title>
         <Title level={3} className="show-more"><Link to="/cryptocurrencies">Show More</Link></Title>
       </div>
+      {/* because simplified is true here, the homepage won't show the search option, but in our cryptocurrency file simplified is false so the search bar shows */}
       <Cryptocurrencies simplified/>
       <div className='home-heading-container'>
         <Title level={2} className="home-title">Latest Crypto News</Title>
