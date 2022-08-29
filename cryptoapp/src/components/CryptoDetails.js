@@ -1,23 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import HTMLReactParser from "html-react-parser"
 // need to bring in useParams because we will show the page that is specific to that query parameter
 import { useParams } from "react-router-dom"
 import millify from "millify"
-import { Col, Row, Typography, Select} from "antd"
-import { MoneyCollectOutlined, NumberOutlined, DollarCircleOutlined, CheckOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, ThunderboltOutlined} from "@ant-design/icons"
-import LineChart from './LineChart'
+import { Col, Row, Typography} from "antd"
+import { MoneyCollectOutlined, NumberOutlined, DollarCircleOutlined, CheckOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined} from "@ant-design/icons"
 import { useGetCryptoDetailsQuery } from '../services/cryptoApi'
 
 const { Title, Text } = Typography
-const { Option } = Select
 
 
 const CryptoDetails = () => {
   const { coinId } = useParams()
-  const [timePeriod, setTimePeriod] = useState("7d")
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId)
 
-  const time = ['3h', '24h', '7d', '30d', '3m', '1y',  '3y', '5y'];
 
   // destructure our coins information so we don't have to type data?.data?. a million times
   const cryptoDetails = data?.data?.coin
