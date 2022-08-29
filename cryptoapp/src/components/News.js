@@ -27,12 +27,12 @@ const News = ({simplified}) => {
                   <Title className='news-title' level={4}>{article.name}</Title>
                   <img src={article?.image?.thumbnail?.contentUrl || demoImage} alt="article" />
                 </div>
-                <p>{readMore ? article.description : `${article.description.substring(0,100)}...`}</p>
+                <p>{article.description > 100 ? `${article.description.substring(0,150)}...` : article.description} </p>
+                <div className='provider-container'>
+                  <Avatar src={article.provider[0]?.image?.thumbnail?.contentUrl || demoImage} alt="news" size={50}/> 
+                  <Text>{moment(article.datePublished).startOf("ss").fromNow()}</Text>
+                </div>
               </a>
-                <button onClick={() => setReadMore(!readMore)}>
-                  {/* if readMore is true our whole paragraph is shown so they see "Show Less", if they click it the state changes to false and we display "Show More" */}
-                  {readMore ? "Show Less" : "Show More"}
-                </button>
             </Card>
           </Col>
         ))}
