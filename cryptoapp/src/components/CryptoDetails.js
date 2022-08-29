@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom"
 import millify from "millify"
 import { Col, Row, Typography, Select} from "antd"
 import { MoneyCollectOutlined, NumberOutlined, DollarCircleOutlined, CheckOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, ThunderboltOutlined} from "@ant-design/icons"
-
+import LineChart from './LineChart'
 import { useGetCryptoDetailsQuery } from '../services/cryptoApi'
 
 const { Title, Text } = Typography
@@ -46,9 +46,7 @@ const CryptoDetails = () => {
         <Title level={2} className="coin-name">{cryptoDetails.name} ({cryptoDetails.symbol})</Title>
         <p>{cryptoDetails.name} live price in US dollars</p>
       </Col>
-      <Select defaultValue="7d" className='select-timeperiod' placeholder="Select time" onChange={(value) => setTimePeriod(value)}>
-        {time.map((option) => <Option key={option}>{option}</Option>)}
-      </Select>
+      {/* <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name}/> */}
       <Col className='stats-container'>
         <Col className='coin-value-statistics'>
           <Col className='coin-value-statistics-heading'>

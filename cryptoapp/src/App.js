@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route, Link} from "react-router-dom"
 import { Layout, Typography, Space } from "antd"
-import { Navbar, Exchanges, Homepage, Cryptocurrencies, CryptoDetails, News } from "./components"
+import { Navbar, Homepage, Cryptocurrencies, CryptoDetails, News } from "./components"
 
 
 function App() {
@@ -15,7 +15,6 @@ function App() {
           <div className='routes'>
             <Routes>
               <Route path="/" element={<Homepage />} />
-              <Route path='/exchanges' element={<Exchanges />} />
               <Route path="/cryptocurrencies" element={<Cryptocurrencies />} />
               <Route path="/crypto/:coinId" element={<CryptoDetails />} />
               <Route path="/news" element={<News />} />
@@ -29,7 +28,6 @@ function App() {
         </Typography.Title>
         <Space>
           <Link to="/">Home</Link>
-          <Link to="/exchanges">Exchanges</Link>
           <Link to="/news">News</Link>
         </Space>
       </div>
