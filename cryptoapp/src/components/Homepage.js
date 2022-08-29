@@ -24,10 +24,10 @@ const Homepage = () => {
       <Row>
         {/* because globalStats points to the stats object in our API we can just grab the total from it.  or total24hVolume, totalCoins,totalExchanges, etc */}
         <Col span={12}><Statistic title="Total Cryptocurrencies" value={stats.total}/></Col>
-        <Col span={12}><Statistic title="Total Exchanges" value={stats.totalExchanges}/></Col>
-        <Col span={12}><Statistic title="Total Market Cap" value={stats.totalMarketCap}/></Col>
-        <Col span={12}><Statistic title="Total 24hr Volume" value={stats.total24hVolume}/></Col>
-        <Col span={12}><Statistic title="Total Markets" value={stats.totalMarkets}/></Col>
+        <Col span={12}><Statistic title="Total Exchanges" value={millify(stats.totalExchanges)}/></Col>
+        <Col span={12}><Statistic title="Total Market Cap" value={millify(stats.totalMarketCap)}/></Col>
+        <Col span={12}><Statistic title="Total 24hr Volume" value={millify(stats.total24hVolume)}/></Col>
+        <Col span={12}><Statistic title="Total Markets" value={millify(stats.totalMarkets)}/></Col>
          
           
         
