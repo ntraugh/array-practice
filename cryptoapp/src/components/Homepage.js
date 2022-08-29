@@ -9,9 +9,10 @@ const { Title } = Typography
 const Homepage = () => {
 
   const { data, isFetching } = useGetCryptosQuery()
+  console.log(data)
   
   // destructured stats from our API call (data.data). we could also grab "coins" from this call as well
-  const { stats } = data.data
+  const stats = data?.data?.stats
 
 
   if(isFetching) return "Loading..."
@@ -28,10 +29,11 @@ const Homepage = () => {
         <Col span={12}><Statistic title="Total Market Cap" value={millify(stats.totalMarketCap)}/></Col>
         <Col span={12}><Statistic title="Total 24hr Volume" value={millify(stats.total24hVolume)}/></Col>
         <Col span={12}><Statistic title="Total Markets" value={millify(stats.totalMarkets)}/></Col>
-         
-          
-        
       </Row>
+      <div className='home-heading-container'>
+        <Title level={2} className="home-title">Top 10</Title>
+        <Title level={3} className="show-more"><Link to="/cryptocurrencies">Show More</Link></Title>
+      </div>
     </>
   )
 }
