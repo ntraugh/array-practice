@@ -1,17 +1,29 @@
-// const options = {
-//     method: 'GET',
-//     url: 'https://coinranking1.p.rapidapi.com/coins',
-//     params: {
-//       referenceCurrencyUuid: 'yhjMzLPhuIDl',
-//       timePeriod: '24h',
-//       'tiers[0]': '1',
-//       orderBy: 'marketCap',
-//       orderDirection: 'desc',
-//       limit: '50',
-//       offset: '0'
-//     },
-//     headers: {
-//       'X-RapidAPI-Key': 'd4a013123emsh1df389a29728209p1c3e74jsn82106f713090',
-//       'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
-//     }
-//   };
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query"
+
+// create a variable for our headers to use with our API
+const cryptoApiHeaders = {
+    'X-RapidAPI-Key': 'd4a013123emsh1df389a29728209p1c3e74jsn82106f713090',
+    'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+}
+
+// create a variable for the url so we don't have to type it out a bunch of times
+const url = 'https://coinranking1.p.rapidapi.com/coins'
+
+// create a function that takes in our url and we return a new object with our headers in the url
+const createRequest = (url) => ({ url, headers: cryptoApiHeaders})
+
+// createApi is a function that comes from Redux
+export const cryptoApi = createApi({
+    reducerPath: "cryptoApi",
+    // our baseQuery is our baseUrl, fetchBaseQuery comes from Redux
+    baseQuery: fetchBaseQuery({
+        baseUrl: url
+    }),
+    // set up all of our endpoints for grabbing data
+    endpoints: (builder) => ({
+        getCryptos: builder.query({
+            // to get all cryptos we query the createRequest with the url of "/exchances"
+            query: () => createRequest("/exchanges")
+        })
+    }) 
+})
