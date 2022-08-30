@@ -9,11 +9,11 @@ import {
   CssBaseline, 
   Grid, 
   Toolbar, 
-  Container } from "@mui/material"
+  Container,
+  Button } from "@mui/material"
 
 import { PhotoCamera } from "@mui/icons-material"
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
+
 
 
 function App() {
@@ -37,12 +37,21 @@ function App() {
             <Typography variant='subtitle1' align="center" color="textSecondary" paragraph>
               More Stuff to display on this page probably photo albums so you can click on them 
             </Typography>
+            <div>
+              <Grid container spacing={2} justifyContent="center">
+                  <Grid item>
+                    <Button variant="contained" color='secondary'>
+                      Hello
+                    </Button>
+                  </Grid>
+                  <Grid item>
+                    <Button variant="outlined" color='primary'>
+                      Hello Again
+                    </Button>
+                  </Grid>
+                </Grid>
+            </div>
           </Container>
-          <ButtonGroup variant="contained" aria-label="outlined primary button group">
-            <Button>One</Button>
-            <Button>Two</Button>
-            <Button>Three</Button>
-          </ButtonGroup>
         </div>
       </main>
     </>
