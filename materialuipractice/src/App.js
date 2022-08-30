@@ -16,7 +16,10 @@ import { PhotoCamera } from "@mui/icons-material"
 
 
 
+
+
 function App() {
+  
   return (
     <>
       <CssBaseline />
@@ -30,7 +33,7 @@ function App() {
       </AppBar>
       <main>
         <div>
-          <Container maxWidth="sm">
+          <Container maxWidth="sm" style={{"marginTop": "100px"}}>
             <Typography variant='h2' align='center' color="textPrimary" gutterBottom>
               Photo Albums
             </Typography>
