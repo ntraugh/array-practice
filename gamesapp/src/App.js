@@ -1,8 +1,14 @@
-import './App.css';
+import React, { useState } from "react"
+import Navbar from "./components/Navbar";
+import Searchbar from "./components/Searchbar";
 
 function App() {
+
   return (
-    <h1>Hello</h1>
+    <>
+      <Navbar />
+      <Searchbar />
+    </>
   );
 }
 
