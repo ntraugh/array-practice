@@ -3,9 +3,9 @@ import { Stack } from "@mui/material"
 
 import { categories } from '../utils/constants'
 import { Category } from '@mui/icons-material'
-const selectedCat = "New"
 
-const Sidebar = () => {
+
+const Sidebar = ({selectedCat, setSelectedCat}) => {
   return (
 // create a Stack with direction of Row for the sidebar
     <Stack direction="row" sx={{ 
@@ -18,6 +18,7 @@ const Sidebar = () => {
             return <button 
             key={i} 
             className="category-btn" 
+            onClick={() => setSelectedCat(cat.name)}
             style={
                 {background: cat.name === selectedCat && "#FC1503",
                 color: "white"}}>
