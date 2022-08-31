@@ -11,6 +11,7 @@ const Sidebar = () => {
     <Stack direction="row" sx={{ 
         overflowY: "auto", 
         height: { sx: "auto", md: "95%"},
+        // on medium and higher screens we go to a column view
         flexDirection: { md: "column"}}}>
 {/* map through our categories and get the name and icon to display a button */}
         {categories.map((cat, i) => {
