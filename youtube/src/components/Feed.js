@@ -9,10 +9,11 @@ import { fetchApi } from '../utils/fetchApi'
 const Feed = () => {
 
   const [selectedCat, setSelectedCat] = useState("New")
+  const [videos, setVideos] = useState([])
 
   useEffect(() => {
     fetchApi(`search?part=snippet&q=${selectedCat}`)
-    .then((data) => console.log(data))
+    .then((data) => setVideos(data.items))
   }, [selectedCat])
 
   return (
@@ -29,7 +30,7 @@ const Feed = () => {
           <Typography variant='h4' fontWeight="bold" mb={2} sx={{color: "white"}}>
             {selectedCat} <span style={{color: "#F31503" }}>Videos</span>
           </Typography>
-          <Videos videos={[]}/>
+          <Videos videos={videos}/>
         </Box>
 
     </Stack>
