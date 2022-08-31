@@ -2,6 +2,7 @@ import React from 'react'
 import { Stack } from "@mui/material"
 
 import { categories } from '../utils/constants'
+import { Category } from '@mui/icons-material'
 const selectedCat = "New"
 
 const Sidebar = () => {
@@ -19,7 +20,9 @@ const Sidebar = () => {
             style={
                 {background: cat.name === selectedCat && "#FC1503",
                 color: "white"}}>
-               <span >
+               <span style={{
+                    opacity: Category.name === selectedCat ? "1" : "0.8"
+               }}>
                     {cat.name}
                 </span>
                <span style={
