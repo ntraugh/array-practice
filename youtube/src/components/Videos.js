@@ -1,6 +1,7 @@
 import React from 'react'
 import { Stack, Box } from "@mui/material"
 import VideoCard from './VideoCard'
+import ChannelCard from './ChannelCard'
 
 
 const Videos = ({videos}) => {
@@ -10,6 +11,7 @@ const Videos = ({videos}) => {
         return <Box key={i}>
 {/* if there is a videoId on the item we render a VideoCard component */}
           {video.id.videoId && <VideoCard video={video}/>}
+          {video.id.channelId && <ChannelCard channel={video}/>}
         </Box>
       })}
     </Stack>
