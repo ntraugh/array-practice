@@ -18,6 +18,7 @@ const Sidebar = ({selectedCat, setSelectedCat}) => {
             return <button 
             key={i} 
             className="category-btn" 
+    // onClick we setSelectedCat to the category.name which will make that selectedCat have the background of red when clicked 
             onClick={() => setSelectedCat(cat.name)}
             style={
                 {background: cat.name === selectedCat && "#FC1503",
