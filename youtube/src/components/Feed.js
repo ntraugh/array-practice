@@ -12,6 +12,7 @@ const Feed = () => {
 
   useEffect(() => {
     fetchApi(`search?part=snippet&q=${selectedCat}`)
+    .then((data) => console.log(data))
   }, [selectedCat])
 
   return (
