@@ -32,7 +32,7 @@ const ChannelDetail = () => {
             zIndex: 10,
             height: "300px"}} 
         />
-        <ChannelCard channel={channelDetails} marginTop="-93px"/>
+        <ChannelCard channel={channelDetails} marginTop="-100px"/>
       </Box>
     </Box>
 
