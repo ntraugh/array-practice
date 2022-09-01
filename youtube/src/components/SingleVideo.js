@@ -62,11 +62,14 @@ const SingleVideo = () => {
             </Stack>
           </Box>
         </Box>
+      <Box px={2} py={{md: 1, xs: 5}} justifyContent="center" alignItems="center">
+        <Typography color="#fff" variant="h5" fontWeight="bold" pb={2}>
+          Suggested videos
+        </Typography>
+        <Videos videos={videos} direction="column"/>
+      </Box>
       </Stack>
 
-      <Box px={2} py={{md: 1, xs: 5}} justifyContent="center" alignItems="center">
-        <Videos videos={videos} />
-      </Box>
 
     </Box>
   )
