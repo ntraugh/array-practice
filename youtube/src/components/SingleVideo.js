@@ -11,12 +11,16 @@ import { fetchApi } from '../utils/fetchApi'
 const SingleVideo = () => {
 
   const [detail, setDetail] = useState(null)
+  const [videos, setVideos] = useState(null)
 
   const { id } = useParams()
 
   useEffect(() => {
     fetchApi(`videos?part=snippet,statistics&id=${id}`)
     .then((data) => setDetail(data.items[0]))
+
+    fetchApi(`search?part=snippet&relatedToVideoId=${id}&type=video`)
+    .then((data) => setVideos(data.items))
   }, [id])
 
   if(!detail?.snippet) return "Loading..."
@@ -31,7 +35,7 @@ const SingleVideo = () => {
           <Box sx={{ width: "100%", position: "sticky", top: "86px"}}>
             {/* reacPlayer takes in a url from a video sharing site */}
             <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className="react-player" controls/>
-            <Typography color="#fff" variant='h5' fontWeight="bold" p={2}>
+            <Typography color="#fff" variant="h5" fontWeight="bold" p={2}>
               {title}
             </Typography>
             <Stack direction="row" justifyContent="space-between" sx={{ color: "#fff"}} py={1} px={2}>
@@ -59,6 +63,10 @@ const SingleVideo = () => {
           </Box>
         </Box>
       </Stack>
+
+      <Box px={2} py={{md: 1, xs: 5}} justifyContent="center" alignItems="center">
+        <Videos videos={videos} />
+      </Box>
 
     </Box>
   )

@@ -12,7 +12,6 @@ const ChannelDetail = () => {
   const [videos, setVideos] = useState([])
 
   const { id } = useParams()
-  console.log(channelDetails, videos)
 
   useEffect(() => {
     // useEffect to fetch our data everytime our id changes 
