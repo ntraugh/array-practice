@@ -24,7 +24,18 @@ const ChannelDetail = () => {
 
   }, [id])
   return (
-    <div>{id}</div>
+    <Box minHeight="95vh">
+      <Box>
+        <div 
+          style={{
+            background: "linear-gradient(to right bottom, #961208, #af1308, #c81407, #e21506, #fc1503)", 
+            zIndex: 10,
+            height: "300px"}} 
+        />
+        <ChannelCard channel={channelDetails}/>
+      </Box>
+    </Box>
+
   )
 }
 
