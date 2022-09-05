@@ -3,15 +3,22 @@ import { Container, AppBar, Typography, Grow, Grid} from "@mui/material"
 import memories from "./components/images/memories.png"
 import Form from "./components/Form/Form";
 import Posts from "./components/Posts/Posts";
+// import makeStyles from "./styles"
 
 function App() {
+  // const classes = makeStyles()
   return (
     <Container maxWidth="lg">
-      <AppBar position="static" color="inherit">
-        <Typography variant="h2" align="center">
+      <AppBar sx={{borderRadius: 5,
+        margin: '30px 0',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',}} position="static" color="inherit">
+        <Typography variant="h2" align="center" sx={{ color: 'rgba(0,183,255, 1)'}}>
           Memories
         </Typography>
-        <img src={memories} alt="memories" height="600" />
+        <img  sx={{marginLeft: '100px',}} src={memories} alt="memories"   height="60"/>
       </AppBar>
       <Grow in>
         <Container>
